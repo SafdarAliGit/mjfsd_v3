@@ -1,0 +1,154 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-10-21 12:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "weaver",
+  "weaver_name",
+  "working_days",
+  "extra_loom_count",
+  "holiday_ot_count",
+  "present_allowance",
+  "present_allowance_amount",
+  "salary_per_day",
+  "basic_salary",
+  "extra_loom_rate",
+  "extra_loom_amount",
+  "holiday_rate",
+  "holiday_amount",
+  "unit_price",
+  "gross_salary",
+  "advance_amount",
+  "net_salary"
+ ],
+ "fields": [
+  {
+   "fieldname": "weaver",
+   "fieldtype": "Link",
+   "options": "Supplier",
+   "label": "Weaver",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "weaver_name",
+   "fieldtype": "Data",
+   "label": "Weaver Name",
+   "fetch_from": "weaver.supplier_name",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "working_days",
+   "fieldtype": "Int",
+   "label": "Working Days",
+   "default": "0",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "extra_loom_count",
+   "fieldtype": "Int",
+   "label": "Extra Loom Count",
+   "default": "0",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "holiday_ot_count",
+   "fieldtype": "Int",
+   "label": "Holiday/OT Count",
+   "default": "0",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "present_allowance",
+   "fieldtype": "Check",
+   "label": "Present Allowance",
+   "default": "0",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "present_allowance_amount",
+   "fieldtype": "Currency",
+   "label": "Present Allowance Amount",
+   "default": "2000",
+   "depends_on": "present_allowance"
+  },
+  {
+   "fieldname": "salary_per_day",
+   "fieldtype": "Currency",
+   "label": "Salary Per Day",
+   "fetch_from": "weaver.custom_salary_per_day",
+   "read_only": 1
+  },
+  {
+   "fieldname": "basic_salary",
+   "fieldtype": "Currency",
+   "label": "Basic Salary",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "extra_loom_rate",
+   "fieldtype": "Currency",
+   "label": "Extra Loom Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "extra_loom_amount",
+   "fieldtype": "Currency",
+   "label": "Extra Loom Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "holiday_rate",
+   "fieldtype": "Currency",
+   "label": "Holiday Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "holiday_amount",
+   "fieldtype": "Currency",
+   "label": "Holiday Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "unit_price",
+   "fieldtype": "Currency",
+   "label": "Unit Price"
+  },
+  {
+   "fieldname": "gross_salary",
+   "fieldtype": "Currency",
+   "label": "Gross Salary",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "advance_amount",
+   "fieldtype": "Currency",
+   "label": "Advance Amount"
+  },
+  {
+   "fieldname": "net_salary",
+   "fieldtype": "Currency",
+   "label": "Net Salary",
+   "read_only": 1,
+   "in_list_view": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-10-21 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Weaver Salary Detail",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

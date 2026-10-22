@@ -1,0 +1,210 @@
+{
+ "actions": [],
+ "creation": "2026-09-14 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "color",
+  "gross_weight",
+  "finish_weight",
+  "received_qty",
+  "rolls_received",
+  "weight_received_kg",
+  "weight_received_lbs",
+  "dyeing_wastage_percent",
+  "column_break_1",
+  "rate",
+  "amount",
+  "section_break_1",
+  "sales_order",
+  "towel_costing_sheet",
+  "dyeing_contract",
+  "dyeing_contract_item",
+  "greige_batch",
+  "color_batch",
+  "fabric_issuance_pcs",
+  "fabric_issuance_rolls",
+  "fabric_issuance_weight_kg"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Link",
+   "label": "Color",
+   "options": "Color",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "gross_weight",
+   "fieldtype": "Float",
+   "label": "Gross Weight",
+   "hidden": 1,
+   "description": "Hidden 2026-09-15 - no longer part of the Finish Weight calc, per your instruction."
+  },
+  {
+   "fieldname": "finish_weight",
+   "fieldtype": "Float",
+   "label": "Finish Weight (KGs)",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "= (Towel Costing Sheet's Finish Weight for this row's Article / 1000) x Received Qty. Recomputed automatically on every save."
+  },
+  {
+   "fieldname": "received_qty",
+   "fieldtype": "Float",
+   "label": "Received Qty (Pcs)",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "rolls_received",
+   "fieldtype": "Float",
+   "label": "Rolls (Received)",
+   "in_list_view": 1,
+   "description": "Cumulative Rolls received against this row's Dyeing Contract Item can never exceed the Rolls issued - enforced on submit."
+  },
+  {
+   "fieldname": "weight_received_kg",
+   "fieldtype": "Float",
+   "label": "Weight (kg) (Received)",
+   "in_list_view": 1,
+   "description": "Cumulative Weight received against this row's Dyeing Contract Item can never exceed the Weight issued - enforced on submit."
+  },
+  {
+   "fieldname": "weight_received_lbs",
+   "fieldtype": "Float",
+   "label": "Weight Actual (Lbs)",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "= Weight (kg) (Received) x 2.2046. Recomputed automatically on every save. Added 2026-09-15."
+  },
+  {
+   "fieldname": "dyeing_wastage_percent",
+   "fieldtype": "Float",
+   "label": "Dyeing Wastage %",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "Rate",
+   "read_only": 1,
+   "description": "Fetched from the matching Dyeing Contract Item row."
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "read_only": 1,
+   "description": "= Rate x Weight Actual (Lbs). Rate is per LBS, not per piece - fixed 2026-09-16 (was wrongly Rate x Received Qty)."
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Reference"
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "label": "Sales Order Ref.",
+   "options": "Sales Order",
+   "read_only": 1
+  },
+  {
+   "fieldname": "towel_costing_sheet",
+   "fieldtype": "Link",
+   "label": "Towel Cost Sheet Ref.",
+   "options": "Towel Costing Sheet",
+   "read_only": 1
+  },
+  {
+   "fieldname": "dyeing_contract",
+   "fieldtype": "Link",
+   "label": "Dyeing Contract Ref.",
+   "options": "Dyeing Contract",
+   "read_only": 1
+  },
+  {
+   "fieldname": "dyeing_contract_item",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Dyeing Contract Item Row",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Internal - the Dyeing Contract Item row this was fetched from, so Received Qty/Rolls/Weight can be rolled back up into it on submit/cancel."
+  },
+  {
+   "fieldname": "greige_batch",
+   "fieldtype": "Link",
+   "label": "Greige Batch",
+   "options": "Batch",
+   "hidden": 1,
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Internal - consumed on the Repack Stock Entry."
+  },
+  {
+   "fieldname": "color_batch",
+   "fieldtype": "Link",
+   "label": "Color Batch",
+   "options": "Batch",
+   "hidden": 1,
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Internal - produced on the Repack Stock Entry. Also what Dyed Fabric Issuance tags its own transfer with."
+  },
+  {
+   "fieldname": "fabric_issuance_pcs",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Fabric Issuance Pcs",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Internal - how much of this row's Received Qty has already been sent out on a Dyed Fabric Issuance. Never exceeds Received Qty - enforced on Dyed Fabric Issuance submit."
+  },
+  {
+   "fieldname": "fabric_issuance_rolls",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Fabric Issuance Rolls",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Internal - how much of this row's Rolls (Received) has already been sent out on a Dyed Fabric Issuance."
+  },
+  {
+   "fieldname": "fabric_issuance_weight_kg",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Fabric Issuance Weight (kg)",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Internal - how much of this row's Weight (kg) (Received) has already been sent out on a Dyed Fabric Issuance."
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Dyeing Receipt Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

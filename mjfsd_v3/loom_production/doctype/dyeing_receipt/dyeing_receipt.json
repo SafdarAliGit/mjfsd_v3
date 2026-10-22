@@ -1,0 +1,122 @@
+{
+ "actions": [],
+ "autoname": "DYRCT-.#####",
+ "creation": "2026-09-14 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "supplier",
+  "date",
+  "column_break_1",
+  "source_warehouse",
+  "target_warehouse",
+  "total_received_qty",
+  "section_break_items",
+  "items",
+  "repack_stock_entry",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1,
+   "default": "Today",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "label": "Source Warehouse",
+   "options": "Warehouse",
+   "reqd": 1,
+   "description": "Not in your original field list - added because the Repack entry needs to know where the Greige fabric is being consumed from. Defaults to the dyer's warehouse (the fetched Dyeing Contract's own Target Warehouse) when you use 'Get Items From > Dyeing Contract'."
+  },
+  {
+   "fieldname": "target_warehouse",
+   "fieldtype": "Link",
+   "label": "Target Warehouse",
+   "options": "Warehouse",
+   "reqd": 1,
+   "description": "Not in your original field list - where the dyed (Color batch) goods land. Defaults to our own warehouse (the fetched Dyeing Contract's own Source Warehouse)."
+  },
+  {
+   "fieldname": "total_received_qty",
+   "fieldtype": "Float",
+   "label": "Total Received Qty",
+   "read_only": 1,
+   "description": "Sum of Received Qty across Items."
+  },
+  {
+   "fieldname": "section_break_items",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Dyeing Receipt Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "repack_stock_entry",
+   "fieldtype": "Link",
+   "label": "Repack Stock Entry",
+   "options": "Stock Entry",
+   "hidden": 1,
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "options": "Dyeing Receipt",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-09-14 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Dyeing Receipt",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

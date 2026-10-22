@@ -1,0 +1,417 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "FW-.#####",
+ "creation": "2025-01-11 20:25:40.410579",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "fabric_quality_section",
+  "warp",
+  "column_break_4gfpd",
+  "weft",
+  "column_break_yuykp",
+  "read_count",
+  "column_break_clnsm",
+  "pick",
+  "column_break_nhqvz",
+  "panna",
+  "column_break_lxley",
+  "const",
+  "column_break_cmppt",
+  "read_space",
+  "ends__beam_construction_section",
+  "amended_from",
+  "extra_add_first",
+  "column_break_kgwjb",
+  "extra_add_second",
+  "column_break_2wfig",
+  "ends",
+  "ends__beam_consumption_yarn_section",
+  "cones_per_bag",
+  "column_break_mu5zi",
+  "weight_per_bag",
+  "column_break_nr99d",
+  "sizing_repeat",
+  "column_break_qgvvc",
+  "bags",
+  "column_break_wo612",
+  "actual_consumption",
+  "column_break_0prch",
+  "actual_cones",
+  "section_break_qej0l",
+  "lbs_to_send",
+  "column_break_isute",
+  "bags_to_send",
+  "column_break_q7aeu",
+  "cones_to_send",
+  "column_break_47rhz",
+  "excess_cones",
+  "beam_lengh_calculation_section",
+  "reduce_",
+  "column_break_6hkc8",
+  "repeat",
+  "column_break_pifrm",
+  "beam_length",
+  "beam__warp_consumption_yarn_actual_section",
+  "warp_consumption",
+  "column_break_g0pux",
+  "left_over_yarn",
+  "column_break_9uqnv",
+  "left_over_cones",
+  "weft_consumption_yarn_section",
+  "required_fabric",
+  "column_break_1okep",
+  "weft_consumption",
+  "column_break_rpvby",
+  "required_yarn"
+ ],
+ "fields": [
+  {
+   "fieldname": "fabric_quality_section",
+   "fieldtype": "Section Break",
+   "label": "Fabric Quality"
+  },
+  {
+   "fieldname": "warp",
+   "fieldtype": "Float",
+   "label": "Warp"
+  },
+  {
+   "fieldname": "weft",
+   "fieldtype": "Float",
+   "label": "Weft"
+  },
+  {
+   "fieldname": "read_count",
+   "fieldtype": "Float",
+   "label": "Read Count"
+  },
+  {
+   "fieldname": "pick",
+   "fieldtype": "Float",
+   "label": "Pick"
+  },
+  {
+   "fieldname": "panna",
+   "fieldtype": "Float",
+   "label": "Panna"
+  },
+  {
+   "fieldname": "const",
+   "fieldtype": "Float",
+   "label": "Const"
+  },
+  {
+   "default": "0",
+   "description": "PANNA + CONST",
+   "fieldname": "read_space",
+   "fieldtype": "Float",
+   "label": "Read Space",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ends__beam_construction_section",
+   "fieldtype": "Section Break",
+   "label": "Ends / Beam Construction"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Fabric Weaving",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4gfpd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_yuykp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_clnsm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_nhqvz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_lxley",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_cmppt",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "description": "(READ SPACE\tX\tREAD COUNT)\t+\tEXTRA Add First\t+\tEXTRA Add Second",
+   "fieldname": "ends",
+   "fieldtype": "Float",
+   "label": "Ends",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_kgwjb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_2wfig",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "extra_add_first",
+   "fieldtype": "Float",
+   "label": "Extra Add First"
+  },
+  {
+   "fieldname": "extra_add_second",
+   "fieldtype": "Float",
+   "label": "Extra Add Second"
+  },
+  {
+   "fieldname": "ends__beam_consumption_yarn_section",
+   "fieldtype": "Section Break",
+   "label": "Ends / Beam Consumption (Yarn)"
+  },
+  {
+   "fieldname": "cones_per_bag",
+   "fieldtype": "Float",
+   "label": "Cones Per Bag"
+  },
+  {
+   "fieldname": "weight_per_bag",
+   "fieldtype": "Float",
+   "label": "Weight Per Bag"
+  },
+  {
+   "fieldname": "sizing_repeat",
+   "fieldtype": "Float",
+   "label": "Sizing Repeat"
+  },
+  {
+   "default": "0",
+   "description": "Ends / Cones Per Bag / Sizing Repeat",
+   "fieldname": "bags",
+   "fieldtype": "Float",
+   "label": "Bags",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_mu5zi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_nr99d",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qgvvc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "Bags  X  Weight Per Bag",
+   "fieldname": "actual_consumption",
+   "fieldtype": "Float",
+   "label": "Actual Consumption",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_wo612",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_0prch",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "Bags  X  Cones Per Bag",
+   "fieldname": "actual_cones",
+   "fieldtype": "Float",
+   "label": "Actual Cones",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_qej0l",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "lbs_to_send",
+   "fieldtype": "Data",
+   "label": "Lbs To Send"
+  },
+  {
+   "fieldname": "column_break_isute",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "Lbs To Send  /  Weight Per Bag",
+   "fieldname": "bags_to_send",
+   "fieldtype": "Data",
+   "label": "Bags To Send",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_q7aeu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "Bags To Send  X  Cones Per Bag",
+   "fieldname": "cones_to_send",
+   "fieldtype": "Data",
+   "label": "Cones To Send",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_47rhz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "Cones To Send  -  Actual Cones",
+   "fieldname": "excess_cones",
+   "fieldtype": "Data",
+   "label": "Excess Cones",
+   "read_only": 1
+  },
+  {
+   "fieldname": "beam_lengh_calculation_section",
+   "fieldtype": "Section Break",
+   "label": "BEAM LENGTH CALCULATION"
+  },
+  {
+   "fieldname": "reduce_",
+   "fieldtype": "Percent",
+   "label": "Reduce %"
+  },
+  {
+   "default": "0",
+   "description": " (( Warp  *  ( Weight Per Bag / Cones Per Bag ) * 768.1 ) * (( 100-Reduce % ) / 100 )) / Repeat",
+   "fieldname": "beam_length",
+   "fieldtype": "Float",
+   "label": "Beam Length",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_6hkc8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "repeat",
+   "fieldtype": "Float",
+   "label": "Repeat"
+  },
+  {
+   "fieldname": "column_break_pifrm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "beam__warp_consumption_yarn_actual_section",
+   "fieldtype": "Section Break",
+   "label": "BEAM / WARP CONSUMPTION (YARN) ACTUAL"
+  },
+  {
+   "default": "0",
+   "description": "((Ends * Beam Length)/768.1)/Warp",
+   "fieldname": "warp_consumption",
+   "fieldtype": "Float",
+   "label": "Warp Consumption",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "Lbs To Send - Warp Consumption",
+   "fieldname": "left_over_yarn",
+   "fieldtype": "Float",
+   "label": "Left Over Yarn",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "Left Over Yarn / (Weight Per Bag/Cones Per Bag)",
+   "fieldname": "left_over_cones",
+   "fieldtype": "Float",
+   "label": "Left Over Cones",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_g0pux",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_9uqnv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "weft_consumption_yarn_section",
+   "fieldtype": "Section Break",
+   "label": "WEFT CONSUMPTION (YARN)"
+  },
+  {
+   "default": "0",
+   "description": "(( Pick  *  Read Space)  /  768.1 ) / Weft",
+   "fieldname": "weft_consumption",
+   "fieldtype": "Float",
+   "label": "Weft Consumption",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "Weft Consumption  *  Required Fabric",
+   "fieldname": "required_yarn",
+   "fieldtype": "Float",
+   "label": "Required Yarn",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1okep",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_rpvby",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "required_fabric",
+   "fieldtype": "Float",
+   "label": "Required Fabric"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-01-14 08:18:11.693014",
+ "modified_by": "Administrator",
+ "module": "MJFSD",
+ "name": "Fabric Weaving",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

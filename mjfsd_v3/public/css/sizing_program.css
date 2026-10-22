@@ -1,0 +1,16 @@
+.btn.btn-xs.btn-default {
+    background: linear-gradient(to right, #28a745, #218838);
+    color: white;
+    padding: 3px;
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 1px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.btn.btn-xs.btn-default:hover {
+    background: #1e7e34;
+}

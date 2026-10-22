@@ -1,0 +1,119 @@
+{
+ "actions": [],
+ "autoname": "DFI-.#####",
+ "creation": "2026-09-14 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "column_break_1",
+  "source_warehouse",
+  "target_warehouse",
+  "section_break_1",
+  "total_fabric_issued",
+  "section_break_items",
+  "items",
+  "transfer_stock_entry",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1,
+   "default": "Today",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "label": "Source Warehouse",
+   "options": "Warehouse",
+   "reqd": 1,
+   "description": "Where the dyed fabric currently sits - defaults to the Dyeing Receipt's Target Warehouse when created via its 'Create > Dyed Fabric Issuance' button."
+  },
+  {
+   "fieldname": "target_warehouse",
+   "fieldtype": "Link",
+   "label": "Target Warehouse",
+   "options": "Warehouse",
+   "reqd": 1,
+   "description": "Where this fabric is being issued to (e.g. Hemming)."
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "total_fabric_issued",
+   "fieldtype": "Float",
+   "label": "Total Fabric Issued (Pcs)",
+   "read_only": 1,
+   "description": "Sum of PCs across Issuance Details."
+  },
+  {
+   "fieldname": "section_break_items",
+   "fieldtype": "Section Break",
+   "label": "Issuance Details"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Issuance Details",
+   "options": "Dyed Fabric Issuance Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "transfer_stock_entry",
+   "fieldtype": "Link",
+   "label": "Transfer Stock Entry",
+   "options": "Stock Entry",
+   "hidden": 1,
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "options": "Dyed Fabric Issuance",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-09-14 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Dyed Fabric Issuance",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

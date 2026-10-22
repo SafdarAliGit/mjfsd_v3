@@ -1,0 +1,53 @@
+{
+ "custom_fields": [
+  {
+   "fieldname": "custom_weaving_receipt",
+   "fieldtype": "Link",
+   "label": "Weaving Receipt",
+   "options": "Weaving Receipt",
+   "insert_after": "stock_entry_type",
+   "dt": "Stock Entry",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Internal reference - set automatically when this Stock Entry is the Manufacture entry raised from a Weaving Receipt's submit."
+  },
+  {
+   "fieldname": "custom_dyeing_receipt",
+   "fieldtype": "Link",
+   "label": "Dyeing Receipt",
+   "options": "Dyeing Receipt",
+   "insert_after": "custom_weaving_receipt",
+   "dt": "Stock Entry",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Internal reference - set automatically when this Stock Entry is the Repack entry raised from a Dyeing Receipt's submit."
+  },
+  {
+   "fieldname": "custom_dyeing_contract",
+   "fieldtype": "Link",
+   "label": "Dyeing Contract",
+   "options": "Dyeing Contract",
+   "insert_after": "custom_dyeing_receipt",
+   "dt": "Stock Entry",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Internal reference - set automatically on the Material Transfer entry raised by Dyeing Contract's Issue Fabric button, and on the Repack entry raised from a Dyeing Receipt (best-effort - first Dyeing Contract found across that receipt's rows)."
+  },
+  {
+   "fieldname": "custom_sales_order",
+   "fieldtype": "Link",
+   "label": "Sales Order",
+   "options": "Sales Order",
+   "insert_after": "custom_dyeing_contract",
+   "dt": "Stock Entry",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Internal reference - set automatically on the Material Transfer entry raised by Dyeing Contract's Issue Fabric button, when that Dyeing Contract itself carries a Sales Order reference."
+  }
+ ],
+ "custom_perms": [],
+ "doctype": "Stock Entry",
+ "links": [],
+ "property_setters": [],
+ "sync_on_migrate": 1
+}

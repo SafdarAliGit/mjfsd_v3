@@ -1,0 +1,514 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "SPROG.-.{supplier}.-.###",
+ "creation": "2023-05-13 16:32:42.018476",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_8n5pw",
+  "conversion",
+  "date",
+  "supplier",
+  "item",
+  "sizing_rate",
+  "quality",
+  "beam_size",
+  "column_break_zeiw",
+  "yarn_count",
+  "lbs_per_bag",
+  "cones_per_bag",
+  "sizing_beam",
+  "warp_wastage_percent",
+  "ends",
+  "meter",
+  "column_break_zeiw1",
+  "fabric_construction",
+  "item_returnable",
+  "source_warehouse",
+  "target_warehouse",
+  "lbs_issue",
+  "warping_beam",
+  "panna",
+  "section_break_zehrc",
+  "cone_weight",
+  "wastage",
+  "net_meter",
+  "meter_warp_per_beam",
+  "meter_sizing_beam",
+  "beam_length",
+  "balance_net_meter",
+  "column_break_r0xpw",
+  "yarn_consumption_per_meter",
+  "lbs",
+  "lbs_per_sizing_beam",
+  "lbs_consumed",
+  "lbs_returnable",
+  "balance_yarn",
+  "bags_issue",
+  "column_break_outputs2",
+  "po_number",
+  "amended_from",
+  "weaving_contract",
+  "weaver",
+  "sales_order",
+  "total_yarn_return",
+  "no_of_bags_required",
+  "uom",
+  "section_break_gbacc",
+  "items",
+  "section_break_yucn8",
+  "stock_return_item",
+  "section_break_vzpyf",
+  "fabric_construction_detail"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_8n5pw",
+   "fieldtype": "Section Break",
+   "label": "Input Details"
+  },
+  {
+   "default": "1",
+   "description": "<span style=\"font-weight: bold; color: orange;\">\nNOTE: If checked it allows 0 valuation,\nif Un checked it does not allow 0 valuation.\n</span>",
+   "fieldname": "conversion",
+   "fieldtype": "Check",
+   "label": " <span style=\"font-weight: bold; color: Green;\">Conversion </span>"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Sizing Name",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Brand",
+   "options": "Item"
+  },
+  {
+   "default": "0",
+   "description": "2026-09-28 (feature v3) - new field, per your request. Carried onto the Sizing Receipt created from this Sizing Program (see the \"Create > Sizing Receipt\" button in sizing_program.js).",
+   "fieldname": "sizing_rate",
+   "fieldtype": "Currency",
+   "label": "Sizing Rate"
+  },
+  {
+   "fieldname": "quality",
+   "fieldtype": "Select",
+   "label": "Quality",
+   "options": "Cotton\nViscose"
+  },
+  {
+   "fieldname": "beam_size",
+   "fieldtype": "Link",
+   "label": "Beam Size",
+   "options": "Beam Size"
+  },
+  {
+   "fieldname": "column_break_zeiw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "yarn_count",
+   "fieldtype": "Float",
+   "label": "Yarn Count",
+   "precision": "2"
+  },
+  {
+   "default": "100",
+   "fieldname": "lbs_per_bag",
+   "fieldtype": "Float",
+   "label": "Lbs / Bag"
+  },
+  {
+   "fieldname": "cones_per_bag",
+   "fieldtype": "Float",
+   "label": "Cones / Bag",
+   "precision": "2",
+   "read_only": 0
+  },
+  {
+   "fieldname": "sizing_beam",
+   "fieldtype": "Float",
+   "label": "Sizing Beam",
+   "precision": "2"
+  },
+  {
+   "default": "4",
+   "fieldname": "warp_wastage_percent",
+   "fieldtype": "Float",
+   "label": "Waste %",
+   "precision": "2"
+  },
+  {
+   "fieldname": "ends",
+   "fieldtype": "Float",
+   "label": "Ends",
+   "precision": "2"
+  },
+  {
+   "default": "0.0",
+   "description": "Yarn Count X 768.1 X Cone Weight",
+   "fieldname": "meter",
+   "fieldtype": "Float",
+   "label": "Net Meter",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_zeiw1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fabric_construction",
+   "fieldtype": "Link",
+   "label": "Finish Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "item_returnable",
+   "fieldtype": "Link",
+   "label": "Item Name",
+   "options": "Item"
+  },
+  {
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Source Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target_warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Target Warehouse",
+   "mandatory_depends_on": "eval:doc.total_yarn_return > 0;",
+   "options": "Warehouse"
+  },
+  {
+   "default": "0",
+   "fieldname": "lbs_issue",
+   "fieldtype": "Float",
+   "label": "LBS Issue"
+  },
+  {
+   "fieldname": "warping_beam",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Warping Beam",
+   "precision": "2"
+  },
+  {
+   "fieldname": "panna",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Panna"
+  },
+  {
+   "fieldname": "section_break_zehrc",
+   "fieldtype": "Section Break",
+   "label": "Output / Calculated Values"
+  },
+  {
+   "default": "0.0",
+   "description": "Lbs Per Bag / Cones Per Bag",
+   "fieldname": "cone_weight",
+   "fieldtype": "Float",
+   "label": "Cone Weight",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "default": "0.0",
+   "fieldname": "wastage",
+   "fieldtype": "Float",
+   "label": "Wastage",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "default": "0.0",
+   "description": "Meter + Wastage",
+   "fieldname": "net_meter",
+   "fieldtype": "Float",
+   "label": "Gross Meter",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "default": "0.0",
+   "description": "Net Meter / Warping Beam",
+   "fieldname": "meter_warp_per_beam",
+   "fieldtype": "Float",
+   "label": "Meter Warp / Beam",
+   "precision": "2",
+   "read_only": 1,
+   "hidden":1
+  },
+  {
+   "default": "0.0",
+   "description": "Meter Warp Per Beam / Sizing Beam",
+   "fieldname": "meter_sizing_beam",
+   "fieldtype": "Float",
+   "label": "Meter Sizing Beam",
+   "precision": "2",
+   "read_only": 1,
+   "hidden":1
+  },
+  {
+   "default": "0.0",
+   "description": "Meter / Sizing Beam",
+   "fieldname": "beam_length",
+   "fieldtype": "Float",
+   "label": "Beam Length",
+   "precision": "2",
+   "read_only": 1,
+   "hidden":1
+  },
+  {
+   "default": "0.0",
+   "description": "Net Meter minus total Beam Length already drawn off into this Sizing Program's Sizing Receipts",
+   "fieldname": "balance_net_meter",
+   "fieldtype": "Float",
+   "label": "Balance Net Meter",
+   "no_copy": 1,
+   "precision": "2",
+   "read_only": 1,
+   "allow_on_submit":1
+  },
+  {
+   "fieldname": "column_break_r0xpw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0.0",
+   "description": "(Ends / 768.1)/ Actual Yarn Count",
+   "fieldname": "yarn_consumption_per_meter",
+   "fieldtype": "Float",
+   "label": "Yarn Consumption Per Meter",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "default": "0.0",
+   "description": "Lbs Per Bag  X  Bags Issue",
+   "fieldname": "lbs",
+   "fieldtype": "Float",
+   "label": "LBS",
+   "precision": "2",
+   "read_only": 1,
+   "hidden":1
+  },
+  {
+   "default": "0.0",
+   "description": "Meter Sizing Beam X Sizing Beam",
+   "fieldname": "lbs_per_sizing_beam",
+   "fieldtype": "Float",
+   "label": "LBS / Sizing Beam",
+   "precision": "2",
+   "read_only": 1,
+   "hidden":1
+  },
+  {
+   "default": "0.0",
+   "description": "Yarn Consumption Per Meter  X Lbs Per Sizing Beam",
+   "fieldname": "lbs_consumed",
+   "fieldtype": "Float",
+   "label": "LBS Consumed ",
+   "precision": "2",
+   "read_only": 1,
+   "hidden":1
+  },
+  {
+   "default": "0.0",
+   "description": "Ls - Lbs Consumed",
+   "fieldname": "lbs_returnable",
+   "fieldtype": "Float",
+   "label": "LBS Returnable",
+   "precision": "2",
+   "read_only": 1,
+   "hidden":1
+  },
+  {
+   "default": "0",
+   "fieldname": "balance_yarn",
+   "fieldtype": "Float",
+   "label": "Balance Yarn",
+   "read_only": 1
+  },
+  {
+   "default": "0.0",
+   "description": "(LBS + Wastage) / 100",
+   "fieldname": "bags_issue",
+   "fieldtype": "Float",
+   "label": "Bags Issue",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_outputs2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "None",
+   "fieldname": "po_number",
+   "fieldtype": "Data",
+   "label": "PO Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Sizing Program",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "weaving_contract",
+   "fieldtype": "Link",
+   "label": "Weaving Contract",
+   "options": "Weaving Contract",
+   "read_only": 1
+  },
+  {
+   "fieldname": "weaver",
+   "fieldtype": "Link",
+   "label": "Weaver",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "description": "2026-09-28 (feature v3) - new field, per your request (\"fetch ... sales order from sizing program\"). create_sizing_program_from_weaving_contract.py was already setting this on newly-created Sizing Programs, but the field itself didn't exist yet, so it was silently dropped - not persisted. Now real, hidden (mirrors weaving_contract/weaver above), and carried onto Sizing Receipt the same way.",
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Sales Order",
+   "no_copy": 1,
+   "options": "Sales Order",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_yarn_return",
+   "fieldtype": "Float",
+   "label": "Total Yarn Return",
+   "read_only": 1,
+   "hidden":1
+  },
+  {
+   "description": "(Ends / Cones Per Bag) / Warping Beam",
+   "fieldname": "no_of_bags_required",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "No Of Bags Required",
+   "precision": "2"
+  },
+  {
+   "fetch_from": "item.stock_uom",
+   "fieldname": "uom",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "UOM"
+  },
+  {
+   "fieldname": "section_break_gbacc",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Sizing Program Item",
+   "options": "Sizing Program Item"
+  },
+  {
+   "fieldname": "section_break_yucn8",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "stock_return_item",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Stock Return Item",
+   "options": "Sizing Program Stock Return Item"
+  },
+  {
+   "fieldname": "section_break_vzpyf",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "fabric_construction_detail",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Fabric Construction Detail",
+   "options": "Fabric Construction Detail"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "group": "From Child Stock Entry",
+   "link_doctype": "Stock Entry",
+   "link_fieldname": "sizing_program"
+  },
+  {
+   "group": "Stock Return Entry",
+   "link_doctype": "Stock Entry",
+   "link_fieldname": "sizing_program"
+  },
+  {
+   "group": "Journal Entry",
+   "link_doctype": "Journal Entry",
+   "link_fieldname": "custom_sizing_program"
+  },
+  {
+   "custom": 1,
+   "group": "Gate Pass",
+   "link_doctype": "Stock Entry",
+   "link_fieldname": "custom_sizing_program_gate_pass"
+  }
+ ],
+ "modified": "2026-02-18 20:57:12.163972",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Sizing Program",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

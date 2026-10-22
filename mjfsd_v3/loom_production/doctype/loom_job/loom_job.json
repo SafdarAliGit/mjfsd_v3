@@ -1,0 +1,162 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:WP-{DD}-{MM}-{YYYY}-{#####}",
+ "creation": "2023-04-26 16:48:16.254558",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer_name",
+  "job_no",
+  "item_required",
+  "item_required_qty",
+  "lbs",
+  "warehouse",
+  "column_break_h9w7",
+  "price",
+  "weaving_charges__lb",
+  "wastage_percent",
+  "completion_date",
+  "date",
+  "section_break_7ro2",
+  "loom_job_items",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Link",
+   "label": "Customer Name",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "job_no",
+   "fieldtype": "Data",
+   "label": "Job No"
+  },
+  {
+   "fieldname": "item_required",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Required",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_required_qty",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Required (Qty)",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Data",
+   "label": "Date"
+  },
+  {
+   "fieldname": "loom_job_items",
+   "fieldtype": "Table",
+   "label": "Customer Provided Items",
+   "options": "Loom Job Items"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Loom Job",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_h9w7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0.0",
+   "fieldname": "price",
+   "fieldtype": "Float",
+   "label": "Price / LB",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "default": "0",
+   "fieldname": "lbs",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "LBS",
+   "non_negative": 1,
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "default": "0.0",
+   "fieldname": "weaving_charges__lb",
+   "fieldtype": "Float",
+   "label": "Weaving Charges / LB",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "completion_date",
+   "fieldtype": "Date",
+   "label": "Completion Date"
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "Customer Provided Items Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "section_break_7ro2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0.0",
+   "fieldname": "wastage_percent",
+   "fieldtype": "Float",
+   "label": "Wastage %",
+   "non_negative": 1,
+   "precision": "2"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "group": "Yarn Received & Beam Construction",
+   "link_doctype": "Stock Entry",
+   "link_fieldname": "loom_job_yarn_received"
+  }
+ ],
+ "modified": "2023-04-30 18:20:15.114537",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Loom Job",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

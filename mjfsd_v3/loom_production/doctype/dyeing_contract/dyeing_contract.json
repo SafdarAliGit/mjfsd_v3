@@ -1,0 +1,213 @@
+{
+ "actions": [],
+ "autoname": "DYCON-.#####",
+ "creation": "2026-09-14 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "supplier",
+  "date",
+  "status",
+  "column_break_1",
+  "source_warehouse",
+  "target_warehouse",
+  "section_break_1",
+  "total_issue_qty",
+  "total_rolls_issued",
+  "total_weight_issued_kg",
+  "column_break_2",
+  "total_received_qty",
+  "total_rolls_received",
+  "total_weight_received_kg",
+  "column_break_3",
+  "balance_qty",
+  "balance_rolls",
+  "balance_weight_kg",
+  "section_break_items",
+  "items",
+  "sales_order",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1,
+   "default": "Today",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Fabric Issued\nIn Process\nDyed",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "label": "Source Warehouse",
+   "options": "Warehouse",
+   "reqd": 1,
+   "description": "Our own warehouse - Greige fabric is issued FROM here to the dyer."
+  },
+  {
+   "fieldname": "target_warehouse",
+   "fieldtype": "Link",
+   "label": "Target Warehouse",
+   "options": "Warehouse",
+   "reqd": 1,
+   "description": "The dyer's warehouse - Greige fabric is received here on Issue Fabric, and consumed from here on Dyeing Receipt's Repack entry."
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "total_issue_qty",
+   "fieldtype": "Float",
+   "label": "Total Issue Qty (Pcs)",
+   "read_only": 1,
+   "description": "Sum of Issued Qty across Items - updated automatically by Issue Fabric."
+  },
+  {
+   "fieldname": "total_rolls_issued",
+   "fieldtype": "Float",
+   "label": "Total Rolls Issued",
+   "read_only": 1,
+   "description": "Sum of Rolls (Issued) across Items - updated automatically by Issue Fabric."
+  },
+  {
+   "fieldname": "total_weight_issued_kg",
+   "fieldtype": "Float",
+   "label": "Total Weight Issued (LBS)",
+   "read_only": 1,
+   "description": "Sum of Weight (kg) (Issued) across Items - updated automatically by Issue Fabric."
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_received_qty",
+   "fieldtype": "Float",
+   "label": "Total Received Qty (Pcs)",
+   "read_only": 1,
+   "description": "Sum of Received Qty across Items - updated automatically when a Dyeing Receipt referencing this contract is submitted."
+  },
+  {
+   "fieldname": "total_rolls_received",
+   "fieldtype": "Float",
+   "label": "Total Rolls Received",
+   "read_only": 1,
+   "description": "Sum of Rolls (Received) across Items - updated automatically when a Dyeing Receipt referencing this contract is submitted."
+  },
+  {
+   "fieldname": "total_weight_received_kg",
+   "fieldtype": "Float",
+   "label": "Total Weight Received (LBS)",
+   "read_only": 1,
+   "description": "Sum of Weight (kg) (Received) across Items - updated automatically when a Dyeing Receipt referencing this contract is submitted."
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "balance_qty",
+   "fieldtype": "Float",
+   "label": "Balance (Pcs)",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "= Total Issue Qty - Total Received Qty. What's still out at the dyer and not yet received back."
+  },
+  {
+   "fieldname": "balance_rolls",
+   "fieldtype": "Float",
+   "label": "Balance (Rolls)",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "= Total Rolls Issued - Total Rolls Received."
+  },
+  {
+   "fieldname": "balance_weight_kg",
+   "fieldtype": "Float",
+   "label": "Balance (Weight LBS)",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "= Total Weight Issued - Total Weight Received."
+  },
+  {
+   "fieldname": "section_break_items",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Dyeing Contract Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "label": "Sales Order",
+   "options": "Sales Order",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Internal - the Sales Order this was created from, via its 'Create Dyeing Contract' button."
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "options": "Dyeing Contract",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-09-14 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Dyeing Contract",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

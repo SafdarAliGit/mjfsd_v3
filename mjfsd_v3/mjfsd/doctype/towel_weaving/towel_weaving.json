@@ -1,0 +1,434 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "TW-.#####",
+ "creation": "2024-10-10 16:40:40.190028",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "formation_cm_section",
+  "width",
+  "column_break_3tu5n",
+  "length",
+  "column_break_ptqa4",
+  "gsm",
+  "column_break_htvgg",
+  "add_percentage",
+  "column_break_2nyk2",
+  "quality_weight",
+  "amended_from",
+  "body_weft_consumption_section",
+  "thread_type",
+  "column_break_jdthh",
+  "weft_thread",
+  "column_break_zgne8",
+  "reduction",
+  "column_break_lpmgq",
+  "weft_count",
+  "column_break_sphvq",
+  "pick",
+  "column_break_hbckp",
+  "percentage_add",
+  "column_break_zarhi",
+  "total_weft",
+  "column_break_g3klr",
+  "consumption_percentage",
+  "ground__warp_consumption_section",
+  "ground_thread_type",
+  "column_break_zk8fk",
+  "read",
+  "column_break_2oxoa",
+  "kinar",
+  "column_break_y1jk9",
+  "cut",
+  "column_break_9gc0y",
+  "yarn",
+  "column_break_my7ig",
+  "ground_reduction",
+  "section_break_slspd",
+  "yarn_count",
+  "column_break_rjlyj",
+  "add_percentage_first",
+  "column_break_nhb9h",
+  "add_percentage_second",
+  "column_break_yzwey",
+  "total_ground",
+  "column_break_iazv8",
+  "ground_consumption_percentage",
+  "hem_fancy_consumption_section",
+  "hem_yarn_count",
+  "column_break_3qega",
+  "loom_width",
+  "column_break_hl1mi",
+  "add_percentage_third",
+  "column_break_ba2aq",
+  "hem_pick",
+  "column_break_2fega",
+  "loom_pcs",
+  "column_break_jpr9h",
+  "total_hem",
+  "section_break_pjv6k",
+  "hem_consumption_percentage",
+  "pile_section",
+  "pile"
+ ],
+ "fields": [
+  {
+   "description": "GSM\tX\tWIDTH\tX\tLENGTH\t/\t10000\t+\tADD %AGE\n",
+   "fieldname": "formation_cm_section",
+   "fieldtype": "Section Break",
+   "label": "FORMATION (CM)"
+  },
+  {
+   "fieldname": "width",
+   "fieldtype": "Float",
+   "label": "Width"
+  },
+  {
+   "fieldname": "length",
+   "fieldtype": "Float",
+   "label": "Length"
+  },
+  {
+   "fieldname": "gsm",
+   "fieldtype": "Float",
+   "label": "GSM"
+  },
+  {
+   "fieldname": "add_percentage",
+   "fieldtype": "Percent",
+   "label": "Add %"
+  },
+  {
+   "default": "0",
+   "fieldname": "quality_weight",
+   "fieldtype": "Float",
+   "label": "Quality Weight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Towel Weaving",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3tu5n",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ptqa4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_htvgg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_2nyk2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "PICK\tX\tWIDTH\t/\t2.54\tX\t%AGE ADD\tX\tLENGTH\t/\t100\t/\t768\t/\tWEFT COUNT\t/\t2.2046\tX\t1000\n",
+   "fieldname": "body_weft_consumption_section",
+   "fieldtype": "Section Break",
+   "label": "BODY WEFT CONSUMPTION"
+  },
+  {
+   "fieldname": "thread_type",
+   "fieldtype": "Select",
+   "label": "Thread Type",
+   "options": "\nSINGLE\nDOUBLE"
+  },
+  {
+   "fieldname": "weft_thread",
+   "fieldtype": "Float",
+   "label": "Weft Thread"
+  },
+  {
+   "fieldname": "reduction",
+   "fieldtype": "Float",
+   "label": "Reduction"
+  },
+  {
+   "fieldname": "weft_count",
+   "fieldtype": "Float",
+   "label": "Weft Count"
+  },
+  {
+   "fieldname": "pick",
+   "fieldtype": "Float",
+   "label": "Pick"
+  },
+  {
+   "fieldname": "percentage_add",
+   "fieldtype": "Percent",
+   "label": "% Add"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_weft",
+   "fieldtype": "Float",
+   "label": "Total Weft",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_jdthh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zgne8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_lpmgq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_sphvq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_hbckp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "description": "(WEFT CONS.\t/\tQT. WT.)X100\n",
+   "fieldname": "consumption_percentage",
+   "fieldtype": "Percent",
+   "label": "Consumption %",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_zarhi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_g3klr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "WIDTH\t/\t2.54\tX\tREAD HALF\t+\tADD %\t+\tKINAR\t+\tCUT\tX\tLENGTH\t+\tADD %\t/\t768\t/\tYARN COUNT\t/\t2.2046\t/\t100\n",
+   "fieldname": "ground__warp_consumption_section",
+   "fieldtype": "Section Break",
+   "label": "GROUND / WARP CONSUMPTION"
+  },
+  {
+   "fieldname": "read",
+   "fieldtype": "Float",
+   "label": "Read"
+  },
+  {
+   "fieldname": "kinar",
+   "fieldtype": "Float",
+   "label": "Kinar"
+  },
+  {
+   "fieldname": "cut",
+   "fieldtype": "Float",
+   "label": "Cut"
+  },
+  {
+   "fieldname": "yarn",
+   "fieldtype": "Float",
+   "label": "Yarn"
+  },
+  {
+   "fieldname": "ground_reduction",
+   "fieldtype": "Float",
+   "label": "Ground Reduction"
+  },
+  {
+   "fieldname": "yarn_count",
+   "fieldtype": "Float",
+   "label": "Yarn Count"
+  },
+  {
+   "fieldname": "add_percentage_first",
+   "fieldtype": "Percent",
+   "label": "Add %"
+  },
+  {
+   "fieldname": "add_percentage_second",
+   "fieldtype": "Percent",
+   "label": "Add %"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_ground",
+   "fieldtype": "Float",
+   "label": "Total Ground",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "(HEM CONS.\t/\tQT. WT.) X\t1000 X 100\n",
+   "fieldname": "ground_consumption_percentage",
+   "fieldtype": "Percent",
+   "label": "Ground Consumption Percentage",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2oxoa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_y1jk9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_9gc0y",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_my7ig",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_slspd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_rjlyj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_nhb9h",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_yzwey",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_iazv8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ground_thread_type",
+   "fieldtype": "Select",
+   "label": "Ground Thread Type",
+   "options": "\nSINGLE\nDOUBLE"
+  },
+  {
+   "fieldname": "column_break_zk8fk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "PICK\tX\tLOOM WIDTH\tX\tADD %\t/\t768.1\t/\tYARN COUNT\t/\t2.2046\t/\tLOOM PCS\n\n",
+   "fieldname": "hem_fancy_consumption_section",
+   "fieldtype": "Section Break",
+   "label": "HEM FANCY CONSUMPTION"
+  },
+  {
+   "fieldname": "add_percentage_third",
+   "fieldtype": "Percent",
+   "label": "Add %"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_hem",
+   "fieldtype": "Float",
+   "label": "Total Hem",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "(HEM CONS.\t/\tQT. WT.)\tX\t1000   X 100\n",
+   "fieldname": "hem_consumption_percentage",
+   "fieldtype": "Percent",
+   "label": "Hem Consumption Percentage",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_hl1mi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_jpr9h",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "\n",
+   "fieldname": "pile_section",
+   "fieldtype": "Section Break",
+   "label": "PILE"
+  },
+  {
+   "default": "0",
+   "description": "PILE   =   100    -    ( BODY WEFT\t+\tGROUND\t+\tHEM FANCY )",
+   "fieldname": "pile",
+   "fieldtype": "Float",
+   "label": "Pile",
+   "read_only": 1
+  },
+  {
+   "fieldname": "loom_width",
+   "fieldtype": "Float",
+   "label": "Loom Width"
+  },
+  {
+   "fieldname": "hem_pick",
+   "fieldtype": "Float",
+   "label": "Hem Pick"
+  },
+  {
+   "fieldname": "hem_yarn_count",
+   "fieldtype": "Float",
+   "label": " Hem Yarn Count"
+  },
+  {
+   "fieldname": "loom_pcs",
+   "fieldtype": "Float",
+   "label": "Loom PCS"
+  },
+  {
+   "fieldname": "column_break_3qega",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ba2aq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_2fega",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_pjv6k",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-12-27 19:18:46.837696",
+ "modified_by": "Administrator",
+ "module": "MJFSD",
+ "name": "Towel Weaving",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

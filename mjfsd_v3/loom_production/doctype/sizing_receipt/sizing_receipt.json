@@ -1,0 +1,420 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "SRCPT.-.#####",
+ "creation": "2026-09-09 00:00:00.000000",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_input",
+  "type",
+  "sales_order",
+  "item",
+  "set_no",
+  "w_set",
+  "yarn_item",
+  "target_warehouse",
+  "column_break_jz3nl",
+  "yarn_count",
+  "beam_no",
+  "beem_length",
+  "ends",
+  "column_break_input3",
+  "lbs",
+  "waste_account",
+  "expense_account",
+  "sizing_rate",
+  "remarks",
+  "section_break_output",
+  "sizing_program",
+  "amended_from",
+  "fabric_construction",
+  "sizing_name",
+  "warp_weight",
+  "column_break_on7yt",
+  "actual_yarn_rate",
+  "yarn_consumption_per_meter",
+  "sizing_amount",
+  "column_break_output3",
+  "yarn_item_rate",
+  "beem_rate",
+  "beem_rate_per_meter",
+  "value_of_yarn",
+  "final_cost_of_beam",
+  "manufacture_stock_entry",
+  "material_transfer_stock_entry",
+  "section_break_stock_return",
+  "stock_return_item",
+  "sizing_program_item",
+  "yarn_wastage_qty",
+  "wastage_percentage",
+  "source_warehouse",
+  "panna",
+  "length"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_input",
+   "fieldtype": "Section Break",
+   "label": "Input Details"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "Beam\nYarn"
+  },
+  {
+   "description": "2026-09-28 (feature v3) - now fetched from the Sizing Program this receipt is created from (per your request), same pattern already used by Source Warehouse below. Requires Sizing Program's own new sales_order field (see its doctype json).",
+   "fetch_from": "sizing_program.sales_order",
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Sales Order",
+   "options": "Sales Order"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Beam item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "set_no",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Set No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "w_set",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "W Set"
+  },
+  {
+   "fieldname": "yarn_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Yarn Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "description": "2026-09-28 (feature v3) - now fetched from the Sizing Program this receipt is created from (per your request), same pattern already used by Source Warehouse below. Still editable (not locked) - say the word if it should be read-only like Source Warehouse.",
+   "fetch_from": "sizing_program.target_warehouse",
+   "fieldname": "target_warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Target Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_jz3nl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "yarn_count",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Yarn Count",
+   "reqd": 1
+  },
+  {
+   "fieldname": "beam_no",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Beam No"
+  },
+  {
+   "default": "0",
+   "fieldname": "beem_length",
+   "fieldtype": "Float",
+   "label": "Beem Length",
+   "precision": "2"
+  },
+  {
+   "fieldname": "ends",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Ends",
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_input3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Yarn Consumption Per Meter X Length",
+   "fieldname": "lbs",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "LBS",
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "default": "Cutpiece wastage - ET",
+   "fieldname": "waste_account",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Waste Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "expense_account",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Expense Account",
+   "options": "Account"
+  },
+  {
+   "default": "0",
+   "description": "2026-09-28 (feature v3) - now fetched from the Sizing Program this receipt is created from (per your request).",
+   "fetch_from": "sizing_program.sizing_rate",
+   "fieldname": "sizing_rate",
+   "fieldtype": "Currency",
+   "label": "Sizing Rate (LBS)"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "section_break_output",
+   "fieldtype": "Section Break",
+   "label": "Output / Calculated Values"
+  },
+  {
+   "fieldname": "sizing_program",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Sizing Program",
+   "no_copy": 0,
+   "options": "Sizing Program",
+   "read_only": 0,
+   "reqd": 1
+  },
+  {
+   "fieldname": "fabric_construction",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Fabric Construction",
+   "options": "Item",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "sizing_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Sizing Name",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "warp_weight",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Warp Weight",
+   "precision": "4",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_on7yt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "actual_yarn_rate",
+   "fieldtype": "Currency",
+   "hidden": 1,
+   "label": "Actual Yarn rate ",
+   "precision": "2"
+  },
+  {
+   "allow_on_submit": 1,
+   "description": "(Ends / 768.1)/ Yarn Count",
+   "fieldname": "yarn_consumption_per_meter",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Yarn Consumption Per Meter",
+   "precision": "7"
+  },
+  {
+   "default": "0",
+   "description": "sizing_rate  X  lbs",
+   "fieldname": "sizing_amount",
+   "fieldtype": "Currency",
+   "label": "Sizing Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_output3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "yarn_item_rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Yarn Item Rate",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "(Yarn Item Rate X Warp Weight) + Sizing Rate",
+   "fieldname": "beem_rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Beem Rate(LBS)",
+   "precision": "4",
+   "read_only": 1
+  },
+  {
+   "fieldname": "beem_rate_per_meter",
+   "fieldtype": "Currency",
+   "hidden": 1,
+   "label": "Beem Rate (LBS) without Sizing",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "value_of_yarn",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Value Of Yarn",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "Value Of Yarn + Sizing Amount",
+   "fieldname": "final_cost_of_beam",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Final Cost Of Beam",
+   "read_only": 1
+  },
+  {
+   "fieldname": "manufacture_stock_entry",
+   "fieldtype": "Link",
+   "label": "Manufacture Stock Entry",
+   "no_copy": 1,
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "material_transfer_stock_entry",
+   "fieldtype": "Link",
+   "label": "Material Transfer Stock Entry",
+   "no_copy": 1,
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sizing_program_item",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Sizing Program Item Row",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "yarn_wastage_qty",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Yarn Wastage Qty"
+  },
+  {
+   "fieldname": "wastage_percentage",
+   "fieldtype": "Percent",
+   "hidden": 1,
+   "label": "Wastage Percentage",
+   "precision": "2"
+  },
+  {
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "fetch_from": "sizing_program.source_warehouse",
+   "hidden": 0,
+   "label": "Source Warehouse",
+   "options": "Warehouse",
+   "read_only": 1
+  },
+  {
+   "fieldname": "panna",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Panna",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "length",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Length",
+   "read_only": 1,
+   "hidden": 1,
+   "reqd": 0
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Sizing Receipt",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_stock_return",
+   "fieldtype": "Section Break",
+   "label": "Stock Return Items"
+  },
+  {
+   "fieldname": "stock_return_item",
+   "fieldtype": "Table",
+   "label": "Stock Return Item",
+   "options": "Sizing Receipt Stock Return Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-09 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Sizing Receipt",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "is_submittable": 1
+}
