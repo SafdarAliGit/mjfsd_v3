@@ -1,0 +1,95 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-09-09 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sales_order",
+  "item",
+  "finish_qty",
+  "raw_material_selection",
+  "raw_material_items",
+  "raw_material_qty",
+  "raw_material_warehouses",
+  "stock_entry"
+ ],
+ "fields": [
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Sales Order",
+   "options": "Sales Order",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "finish_qty",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Finish Qty",
+   "reqd": 1
+  },
+  {
+   "fieldname": "raw_material_selection",
+   "fieldtype": "Button",
+   "label": "Raw Material Selection"
+  },
+  {
+   "description": "Item codes consumed for this row, in the same order as Raw Material Qty / Raw Material Warehouses below. Auto-filled by Raw Material Selection - not part of the original field list, added because Qty/Warehouses can't be matched back to an item without it.",
+   "fieldname": "raw_material_items",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Raw Material Items",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "description": "Pipe-separated (\" | \"), same order as Raw Material Items.",
+   "fieldname": "raw_material_qty",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Raw Material Qty",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "description": "Pipe-separated (\" | \"), same order as Raw Material Items.",
+   "fieldname": "raw_material_warehouses",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Raw Material Warehouses",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "stock_entry",
+   "fieldtype": "Link",
+   "label": "Stock Entry",
+   "no_copy": 1,
+   "options": "Stock Entry",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-09 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Daily Towel Production Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

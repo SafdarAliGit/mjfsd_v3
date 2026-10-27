@@ -1,0 +1,129 @@
+{
+ "actions": [],
+ "creation": "2026-09-14 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "color",
+  "issued_pcs",
+  "issued_weight_kg",
+  "column_break_1",
+  "a_qty",
+  "b_qty",
+  "column_break_2",
+  "sales_order",
+  "dyeing_receipt",
+  "dyeing_contract",
+  "dyed_fabric_issuance_item",
+  "color_batch"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Link",
+   "label": "Color",
+   "options": "Color",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "issued_pcs",
+   "fieldtype": "Float",
+   "label": "Issued Pcs",
+   "read_only": 1,
+   "in_list_view": 1,
+   "description": "Fetched from the source Dyed Fabric Issuance row's PCs."
+  },
+  {
+   "fieldname": "issued_weight_kg",
+   "fieldtype": "Float",
+   "label": "Issued Weight (kg)",
+   "read_only": 1,
+   "in_list_view": 1,
+   "description": "Fetched from the source Dyed Fabric Issuance row's Weight (kg)."
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "a_qty",
+   "fieldtype": "Float",
+   "label": "A Qty",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "b_qty",
+   "fieldtype": "Float",
+   "label": "B Qty",
+   "in_list_view": 1,
+   "description": "Combined with A Qty into one transfer unless Transfer B Qty is checked on the parent, in which case it's transferred separately to B Qty Warehouse."
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "label": "Sales Order Ref.",
+   "options": "Sales Order",
+   "read_only": 1
+  },
+  {
+   "fieldname": "dyeing_receipt",
+   "fieldtype": "Link",
+   "label": "Dyeing Receipt Ref.",
+   "options": "Dyeing Receipt",
+   "read_only": 1
+  },
+  {
+   "fieldname": "dyeing_contract",
+   "fieldtype": "Link",
+   "label": "Dyeing Contract Ref.",
+   "options": "Dyeing Contract",
+   "read_only": 1
+  },
+  {
+   "fieldname": "dyed_fabric_issuance_item",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Dyed Fabric Issuance Item Row",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Internal - the Dyed Fabric Issuance row this was fetched from."
+  },
+  {
+   "fieldname": "color_batch",
+   "fieldtype": "Link",
+   "label": "Color Batch",
+   "options": "Batch",
+   "hidden": 1,
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Internal - carried through from Dyed Fabric Issuance / Dyeing Receipt. Tags this row's A Qty / B Qty transfer lines."
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-14 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Long Hemming Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

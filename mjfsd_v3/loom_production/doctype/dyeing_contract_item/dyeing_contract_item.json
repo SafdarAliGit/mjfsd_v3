@@ -1,0 +1,267 @@
+{
+ "actions": [],
+ "creation": "2026-09-14 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "weave",
+  "color",
+  "finish_weight",
+  "finish_weight_uom",
+  "cut_size",
+  "order_qty",
+  "lbs",
+  "so_balance",
+  "dyeing_wastage_percent",
+  "solid",
+  "stripe",
+  "yarn_dyed",
+  "column_break_1",
+  "issued_qty",
+  "rolls_issued",
+  "weight_issued_kg",
+  "received_qty",
+  "rolls_received",
+  "weight_received_kg",
+  "column_break_2",
+  "rate",
+  "amount",
+  "section_break_1",
+  "sales_order",
+  "sales_order_item",
+  "towel_costing_sheet",
+  "greige_batch"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "weave",
+   "fieldtype": "Link",
+   "label": "Weave",
+   "options": "Weave",
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Link",
+   "label": "Color",
+   "options": "Color",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "finish_weight",
+   "fieldtype": "Float",
+   "label": "Finish Weight",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "finish_weight_uom",
+   "fieldtype": "Data",
+   "label": "Finish Weight UOM",
+   "hidden": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "cut_size",
+   "fieldtype": "Data",
+   "label": "Cut Size",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "order_qty",
+   "fieldtype": "Float",
+   "label": "AB Qty",
+   "in_list_view": 1,
+   "description": "Defaults to the Sales Order Item's AB Qty when fetched via 'Create Dyeing Contract' - editable afterwards. Amount recalculates from Rate x this whenever it changes.",
+   "columns": 1
+  },
+  {
+   "fieldname": "lbs",
+   "fieldtype": "Float",
+   "label": "LBS",
+   "read_only": 1,
+   "precision": "2",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "so_balance",
+   "fieldtype": "Float",
+   "label": "SO Balance (AB Qty)",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "AB Qty of this Sales Order row not yet assigned to any submitted Dyeing Contract, when this contract was created."
+  },
+  {
+   "fieldname": "dyeing_wastage_percent",
+   "fieldtype": "Float",
+   "label": "Dyeing Wastage %",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "solid",
+   "fieldtype": "Float",
+   "label": "Solid",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "stripe",
+   "fieldtype": "Float",
+   "label": "Stripe",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "yarn_dyed",
+   "fieldtype": "Float",
+   "label": "Yarn Dyed",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "issued_qty",
+   "fieldtype": "Float",
+   "label": "Issued Qty (Pcs)",
+   "read_only": 1,
+   "no_copy": 1,
+   "in_list_view": 1,
+   "description": "Updated automatically by Issue Fabric - accumulates across multiple partial issues."
+  },
+  {
+   "fieldname": "rolls_issued",
+   "fieldtype": "Float",
+   "label": "Rolls (Issued)",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Updated automatically by Issue Fabric - accumulates across multiple partial issues."
+  },
+  {
+   "fieldname": "weight_issued_kg",
+   "fieldtype": "Float",
+   "label": "Weight (LBS) (Issued)",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "2026-09-28 - = (Issued Qty x TCS Finish Weight / 1000) x 2.2046. No longer manually entered/accumulated from Stock Entry."
+  },
+  {
+   "fieldname": "received_qty",
+   "fieldtype": "Float",
+   "label": "Received Qty (Pcs)",
+   "read_only": 1,
+   "no_copy": 1,
+   "in_list_view": 1,
+   "description": "Updated automatically when a Dyeing Receipt referencing this row is submitted."
+  },
+  {
+   "fieldname": "rolls_received",
+   "fieldtype": "Float",
+   "label": "Rolls (Received)",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Updated automatically when a Dyeing Receipt referencing this row is submitted. Can never exceed Rolls (Issued) - enforced on Dyeing Receipt submit."
+  },
+  {
+   "fieldname": "weight_received_kg",
+   "fieldtype": "Float",
+   "label": "Weight (LBS) (Received)",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "2026-09-28 - = (Received Qty x TCS Finish Weight / 1000) x 2.2046."
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "Rate",
+   "description": "Agreed dyeing rate per unit with the supplier - entered manually.",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "read_only": 1,
+   "description": "= Rate x Order Qty (AB Qty).",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Reference"
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "label": "Sales Order Ref.",
+   "options": "Sales Order",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sales_order_item",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Sales Order Item Row",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Internal - the Sales Order Item row this was fetched from."
+  },
+  {
+   "fieldname": "towel_costing_sheet",
+   "fieldtype": "Link",
+   "label": "Towel Cost Sheet Ref.",
+   "options": "Towel Costing Sheet",
+   "read_only": 1
+  },
+  {
+   "fieldname": "greige_batch",
+   "fieldtype": "Link",
+   "label": "Greige Batch",
+   "options": "Batch",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Internal - fetched from the Sales Order Item's Greige Batch. Used to tag the Greige batch consumed on Issue Fabric."
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-10-27 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Dyeing Contract Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

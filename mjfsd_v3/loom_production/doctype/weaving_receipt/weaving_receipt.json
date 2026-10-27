@@ -1,0 +1,159 @@
+{
+ "actions": [],
+ "autoname": "WVRCPT-.#####",
+ "creation": "2026-09-10 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "weaver",
+  "column_break_1",
+  "source_warehouse",
+  "target_warehouse",
+  "section_break_totals",
+  "total_pcs_received",
+  "column_break_totals",
+  "total_weight_challan",
+  "total_weight_actual",
+  "section_break_items",
+  "items",
+  "section_break_details",
+  "details",
+  "amended_from",
+  "manufacture_stock_entry"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1,
+   "default": "Today"
+  },
+  {
+   "fieldname": "weaver",
+   "fieldtype": "Link",
+   "label": "Weaver",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "label": "Source Warehouse",
+   "options": "Warehouse",
+   "reqd": 1,
+   "description": "Raw materials (yarn) are consumed from here on submit."
+  },
+  {
+   "fieldname": "target_warehouse",
+   "fieldtype": "Link",
+   "label": "Target Warehouse",
+   "options": "Warehouse",
+   "reqd": 1,
+   "description": "Finished fabric is received into here on submit."
+  },
+  {
+   "fieldname": "section_break_totals",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "total_pcs_received",
+   "fieldtype": "Float",
+   "label": "Total Pcs Received",
+   "read_only": 1,
+   "description": "Sum of Total Pcs across every roll in Weaving Receipt Details"
+  },
+  {
+   "fieldname": "column_break_totals",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_weight_challan",
+   "fieldtype": "Float",
+   "label": "Total Weight (Challan)",
+   "read_only": 1,
+   "description": "Sum of Weight (Challan) across Weaving Receipt Items"
+  },
+  {
+   "fieldname": "total_weight_actual",
+   "fieldtype": "Float",
+   "label": "Total Weight (Actual)",
+   "read_only": 1,
+   "description": "Sum of Weight (Actual) across Weaving Receipt Items (equivalently, sum of Weight across every roll in Weaving Receipt Details)"
+  },
+  {
+   "fieldname": "section_break_items",
+   "fieldtype": "Section Break",
+   "label": "Weaving Receipt Items"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "options": "Weaving Receipt Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_details",
+   "fieldtype": "Section Break",
+   "label": "Weaving Receipt Details (Rolls)"
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Table",
+   "options": "Weaving Receipt Detail"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "options": "Weaving Receipt",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "manufacture_stock_entry",
+   "fieldtype": "Link",
+   "label": "Manufacture Stock Entry",
+   "options": "Stock Entry",
+   "hidden": 1,
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Set on submit - the Stock Entry this Weaving Receipt raised, so cancel can find and cancel it."
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-09-10 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Weaving Receipt",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "cancel": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "weaver"
+}

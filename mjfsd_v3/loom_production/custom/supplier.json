@@ -1,0 +1,18 @@
+{
+ "custom_fields": [
+  {
+   "dt": "Supplier",
+   "doctype": "Custom Field",
+   "name": "Supplier-custom_salary_per_day",
+   "fieldname": "custom_salary_per_day",
+   "fieldtype": "Currency",
+   "label": "Salary Per Day",
+   "insert_after": "supplier_group"
+  }
+ ],
+ "custom_perms": [],
+ "doctype": "Supplier",
+ "links": [],
+ "property_setters": [],
+ "sync_on_migrate": 1
+}

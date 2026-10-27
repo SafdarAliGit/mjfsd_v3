@@ -1,0 +1,227 @@
+{
+ "actions": [],
+ "autoname": "SF-.#####",
+ "creation": "2026-09-26 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "supplier",
+  "date",
+  "department",
+  "column_break_1",
+  "source_warehouse",
+  "b_qty_source_warehouse",
+  "target_warehouse",
+  "trims_warehouse",
+  "long_hemming",
+  "section_break_totals",
+  "total_a_qty",
+  "total_b_qty",
+  "column_break_totals",
+  "total_qty",
+  "total_ctn",
+  "section_break_items",
+  "items",
+  "section_break_waste",
+  "waste_items",
+  "section_break_trims",
+  "trims",
+  "section_break_refs",
+  "manufacture_stock_entries",
+  "waste_stock_entry",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1,
+   "default": "Today",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "label": "Source Warehouse",
+   "options": "Warehouse",
+   "reqd": 1,
+   "description": "Where the hemmed towels are (the Long Hemming's Target Warehouse)."
+  },
+  {
+   "fieldname": "b_qty_source_warehouse",
+   "fieldtype": "Link",
+   "label": "B Qty Source Warehouse",
+   "options": "Warehouse",
+   "description": "Only if B Qty sits in a separate warehouse (Long Hemming with Transfer B Qty checked). Leave empty to take B Qty from the Source Warehouse too."
+  },
+  {
+   "fieldname": "target_warehouse",
+   "fieldtype": "Link",
+   "label": "Target Warehouse",
+   "options": "Warehouse",
+   "reqd": 1,
+   "description": "Finished goods warehouse."
+  },
+  {
+   "fieldname": "trims_warehouse",
+   "fieldtype": "Link",
+   "label": "Trims Warehouse",
+   "options": "Warehouse",
+   "description": "Where trims & accessories are consumed from. Leave empty to use the Source Warehouse."
+  },
+  {
+   "fieldname": "long_hemming",
+   "fieldtype": "Link",
+   "label": "Long Hemming",
+   "options": "Long Hemming",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_totals",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "total_a_qty",
+   "fieldtype": "Float",
+   "label": "Total A Qty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_b_qty",
+   "fieldtype": "Float",
+   "label": "Total B Qty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_totals",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Float",
+   "label": "Total Qty (A + B)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_ctn",
+   "fieldtype": "Float",
+   "label": "Total Ctn",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_items",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Stitching and Finishing Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_waste",
+   "fieldtype": "Section Break",
+   "label": "Waste Items"
+  },
+  {
+   "fieldname": "waste_items",
+   "fieldtype": "Table",
+   "label": "Waste Items",
+   "options": "Hemming Wastage"
+  },
+  {
+   "fieldname": "section_break_trims",
+   "fieldtype": "Section Break",
+   "label": "Trims Consumption"
+  },
+  {
+   "fieldname": "trims",
+   "fieldtype": "Table",
+   "label": "Trims Consumption",
+   "options": "Stitching and Finishing Trim"
+  },
+  {
+   "fieldname": "section_break_refs",
+   "fieldtype": "Section Break",
+   "label": "Stock Entries",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "manufacture_stock_entries",
+   "fieldtype": "Small Text",
+   "label": "Manufacture Stock Entries",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "waste_stock_entry",
+   "fieldtype": "Link",
+   "label": "Waste Stock Entry",
+   "options": "Stock Entry",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "options": "Stitching and Finishing",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-09-26 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Stitching and Finishing",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "supplier",
+ "track_changes": 1
+}

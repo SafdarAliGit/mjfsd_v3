@@ -1,0 +1,56 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-09-09 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "yarn_item",
+  "type",
+  "qty_lbs",
+  "target_warehouse"
+ ],
+ "fields": [
+  {
+   "fieldname": "yarn_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Yarn Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "Cut Cone\nRewind"
+  },
+  {
+   "fieldname": "qty_lbs",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Qty Lbs"
+  },
+  {
+   "fieldname": "target_warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Target Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-09 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Sizing Receipt Stock Return Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

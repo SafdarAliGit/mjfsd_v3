@@ -1,0 +1,373 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-09-09 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sales_order",
+  "weaving_contract",
+  "item",
+  "loom",
+  "weaver",
+  "rpm",
+  "color",
+  "a_qty",
+  "b_qty",
+  "c_qty",
+  "cut_pcs_qty",
+  "finish_qty",
+  "greige_weight",
+  "total_greige_weight",
+  "total_greige_weight_scale",
+  "no_of_picks",
+  "panel",
+  "avg_pcs_weight",
+  "efficiency_100",
+  "total_greige_weight_scale_lbs",
+  "actual_efficiency",
+  "unit_price",
+  "no_of_rolls",
+  "weight_kg",
+  "has_pile",
+  "has_ground",
+  "has_weft",
+  "has_fancy",
+  "pile_warehouse",
+  "pile_beam",
+  "ground_warehouse",
+  "ground_beam",
+  "weft_warehouse",
+  "fancy_warehouse",
+  "raw_material_selection",
+  "raw_material_items",
+  "raw_material_qty",
+  "raw_material_warehouses",
+  "stock_entry"
+ ],
+ "fields": [
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Sales Order",
+   "options": "Sales Order"
+  },
+  {
+   "description": "Commercial only - the Weaving Contract this row is produced against.",
+   "fieldname": "weaving_contract",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Weaving Contract",
+   "options": "Weaving Contract"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "loom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Loom No",
+   "options": "Loom"
+  },
+  {
+   "fieldname": "weaver",
+   "fieldtype": "Link",
+   "options": "Supplier",
+   "in_list_view": 1,
+   "label": "Weaver"
+  },
+  {
+   "fetch_from": "loom.rpm",
+   "fieldname": "rpm",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "RPM"
+  },
+  {
+   "default": "Greige",
+   "description": "2026-09-28 (feature v3) - new field, per your request. Defaults to Greige, but is a plain user-editable Link, not locked.",
+   "fieldname": "color",
+   "fieldtype": "Link",
+   "label": "Color",
+   "options": "Color"
+  },
+  {
+   "default": "0",
+   "description": "2026-09-28 (feature v3) - new field, per your request. Feeds Finish Qty below (A Qty + B Qty + C Qty + Cut Pcs Qty).",
+   "fieldname": "a_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "A Qty"
+  },
+  {
+   "default": "0",
+   "fieldname": "b_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "B Qty"
+  },
+  {
+   "default": "0",
+   "fieldname": "c_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "C Qty"
+  },
+  {
+   "default": "0",
+   "fieldname": "cut_pcs_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Cut Pcs Qty"
+  },
+  {
+   "default": "0",
+   "description": "2026-09-28 (feature v3) - \"Finish Qty (Read only) = A Qty + B Qty + C Qty + Cut Pcs Qty\" (your words). Was a plain user-entered Int - now a calculated, read-only Float (Float to match A/B/C/Cut Pcs Qty's own type; recomputed live in daily_loom_production.js and authoritatively on save in daily_loom_production.py's validate()).",
+   "fieldname": "finish_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Finish Qty",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "2026-09-28 (feature v3) - new field, per your request. Fetched from the Towel Costing Sheet linked off this row's Sales Order Item (same custom_towel_costing_sheet lookup used by Raw Material Selection) - the Finish Item Towel Costing row whose Article matches this row's Item. Recalculated whenever Sales Order or Item changes.",
+   "fieldname": "greige_weight",
+   "fieldtype": "Float",
+   "label": "Greige Weight",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "2026-09-28 (feature v3) - \"Total Greige Weight (Calculated) (greige weight * Finish Qty)\" (your words). Read-only - for the manually-recorded scale reading, see Total Greige Weight (Scale) below.",
+   "fieldname": "total_greige_weight",
+   "fieldtype": "Float",
+   "label": "Total Greige Weight (Calculated)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "2026-09-28 (feature v3) - new field, per your request. Manually entered actual scale weight - not derived from Greige Weight x Finish Qty (see Total Greige Weight (Calculated) above for that).",
+   "fieldname": "total_greige_weight_scale",
+   "fieldtype": "Float",
+   "label": "Total Greige Weight (Scale)"
+  },
+  {
+   "fieldname": "no_of_picks",
+   "fieldtype": "Float",
+   "label": "No of Picks",
+   "fetch_from": "item.custom_no_of_pick",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "panel",
+   "fieldtype": "Int",
+   "label": "Panel",
+   "fetch_from": "item.custom_panel",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "avg_pcs_weight",
+   "fieldtype": "Float",
+   "label": "Avg Pcs Weight",
+   "precision": "4",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "efficiency_100",
+   "fieldtype": "Float",
+   "label": "Efficiency (100%)",
+   "precision": "2",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "total_greige_weight_scale_lbs",
+   "fieldtype": "Float",
+   "label": "Total Greige Weight (Scale LBS)",
+   "precision": "2",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "actual_efficiency",
+   "fieldtype": "Float",
+   "label": "Actual Efficiency",
+   "precision": "2",
+   "in_list_view": 1,
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "unit_price",
+   "fieldtype": "Float",
+   "label": "Unit Price",
+   "precision": "2",
+   "in_list_view": 1,
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "no_of_rolls",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "No. of Rolls"
+  },
+  {
+   "default": "0",
+   "fieldname": "weight_kg",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Weight (Kg)"
+  },
+  {
+   "fieldname": "has_pile",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Has Pile",
+   "no_copy": 1,
+   "read_only": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "has_ground",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Has Ground",
+   "no_copy": 1,
+   "read_only": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "has_weft",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Has Weft",
+   "no_copy": 1,
+   "read_only": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "has_fancy",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Has Fancy",
+   "no_copy": 1,
+   "read_only": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "pile_warehouse",
+   "fieldtype": "Link",
+   "options": "Warehouse",
+   "in_list_view": 1,
+   "label": "Pile Warehouse",
+   "depends_on": "eval:doc.has_pile"
+  },
+  {
+   "fieldname": "pile_beam",
+   "fieldtype": "Link",
+   "options": "Batch",
+   "in_list_view": 1,
+   "label": "Pile Beam",
+   "depends_on": "eval:doc.has_pile",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "ground_warehouse",
+   "fieldtype": "Link",
+   "options": "Warehouse",
+   "in_list_view": 1,
+   "label": "Ground Warehouse",
+   "depends_on": "eval:doc.has_ground"
+  },
+  {
+   "fieldname": "ground_beam",
+   "fieldtype": "Link",
+   "options": "Batch",
+   "in_list_view": 1,
+   "label": "Ground Beam",
+   "depends_on": "eval:doc.has_ground",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "weft_warehouse",
+   "fieldtype": "Link",
+   "options": "Warehouse",
+   "in_list_view": 1,
+   "label": "Weft Warehouse",
+   "depends_on": "eval:doc.has_weft"
+  },
+  {
+   "fieldname": "fancy_warehouse",
+   "fieldtype": "Link",
+   "options": "Warehouse",
+   "in_list_view": 1,
+   "label": "Fancy Warehouse",
+   "depends_on": "eval:doc.has_fancy"
+  },
+  {
+   "fieldname": "raw_material_selection",
+   "fieldtype": "Button",
+   "label": "Raw Material Selection",
+   "hidden": 1
+  },
+  {
+   "fieldname": "raw_material_items",
+   "fieldtype": "Data",
+   "label": "Raw Material Items",
+   "no_copy": 1,
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "raw_material_qty",
+   "fieldtype": "Data",
+   "label": "Raw Material Qty",
+   "no_copy": 1,
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "raw_material_warehouses",
+   "fieldtype": "Data",
+   "label": "Raw Material Warehouses",
+   "no_copy": 1,
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "stock_entry",
+   "fieldtype": "Link",
+   "label": "Stock Entry",
+   "no_copy": 1,
+   "options": "Stock Entry",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-10-21 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Daily Loom Production Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

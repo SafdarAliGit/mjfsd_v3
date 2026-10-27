@@ -1,0 +1,88 @@
+{
+ "actions": [],
+ "creation": "2026-09-26 12:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "finish_item",
+  "item_code",
+  "consumption_unit",
+  "consumed_qty",
+  "qty_required",
+  "uom",
+  "towel_costing_sheet"
+ ],
+ "fields": [
+  {
+   "fieldname": "finish_item",
+   "fieldtype": "Link",
+   "label": "Finish Item",
+   "options": "Item",
+   "in_list_view": 1,
+   "columns": 2,
+   "reqd": 1,
+   "description": "Which Finish Item's Items rows this trim is consumed for."
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Item Code",
+   "options": "Item",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "consumption_unit",
+   "fieldtype": "Select",
+   "label": "Consumption Unit",
+   "options": "Per Pcs\nPer Pack\nPer Ctn",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "consumed_qty",
+   "fieldtype": "Float",
+   "label": "Qty",
+   "in_list_view": 1,
+   "columns": 1,
+   "description": "Qty per Pcs / Pack / Ctn, from the Towel Costing Sheet's Trims table."
+  },
+  {
+   "fieldname": "qty_required",
+   "fieldtype": "Float",
+   "label": "Qty Required",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 2,
+   "description": "Per Pcs: Qty x (A+B). Per Pack: Qty x (A+B) / Pcs per Pack. Per Ctn: Qty x Total Ctn - summed over every Items row of this Finish Item. Consumed on submit."
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "towel_costing_sheet",
+   "fieldtype": "Link",
+   "label": "Towel Costing Sheet",
+   "options": "Towel Costing Sheet",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-26 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Stitching and Finishing Trim",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

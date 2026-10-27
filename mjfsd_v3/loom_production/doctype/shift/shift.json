@@ -1,0 +1,80 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:Shift-{shift_name}",
+ "creation": "2023-04-29 19:00:14.198877",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "shift_name",
+  "shift_start_time",
+  "shift_end_time",
+  "shift_supervisor",
+  "shift_working_hours"
+ ],
+ "fields": [
+  {
+   "fieldname": "shift_name",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Shift Name",
+   "options": "A\nB\nC",
+   "reqd": 1
+  },
+  {
+   "fieldname": "shift_start_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Shift Start Time"
+  },
+  {
+   "fieldname": "shift_end_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Shift End Time"
+  },
+  {
+   "fieldname": "shift_supervisor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Shift Supervisor",
+   "options": "Employee"
+  },
+  {
+   "default": "8",
+   "fieldname": "shift_working_hours",
+   "fieldtype": "Float",
+   "label": "Shift Working Hours",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-19 16:40:27.761889",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Shift",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -1,0 +1,173 @@
+{
+ "actions": [],
+ "creation": "2026-09-26 12:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "finish_item",
+  "color",
+  "finish_weight",
+  "weight_uom",
+  "column_break_qty",
+  "a_qty",
+  "b_qty",
+  "total_qty",
+  "column_break_pack",
+  "pcs_per_pack",
+  "pack_per_ctn",
+  "total_ctn",
+  "section_break_ref",
+  "sales_order",
+  "sales_order_item",
+  "towel_costing_sheet",
+  "column_break_ref",
+  "color_batch",
+  "long_hemming_item"
+ ],
+ "fields": [
+  {
+   "fieldname": "finish_item",
+   "fieldtype": "Link",
+   "label": "Finish Item",
+   "options": "Item",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Link",
+   "label": "Color",
+   "options": "Color",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "finish_weight",
+   "fieldtype": "Float",
+   "label": "Finish Weight",
+   "in_list_view": 1,
+   "columns": 1,
+   "description": "Fetched from the Towel Costing Sheet's Finish Item row."
+  },
+  {
+   "fieldname": "weight_uom",
+   "fieldtype": "Select",
+   "label": "Weight UOM",
+   "options": "\nLBS/Dozen\nGram",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "column_break_qty",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "a_qty",
+   "fieldtype": "Float",
+   "label": "A Qty",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "b_qty",
+   "fieldtype": "Float",
+   "label": "B Qty",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Float",
+   "label": "Total Qty (A + B)",
+   "read_only": 1,
+   "description": "= A Qty + B Qty. Consumed from the Source Warehouse and produced into the Target Warehouse."
+  },
+  {
+   "fieldname": "column_break_pack",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pcs_per_pack",
+   "fieldtype": "Float",
+   "label": "Pcs per Pack",
+   "in_list_view": 1,
+   "columns": 1,
+   "description": "From the Sales Order Item."
+  },
+  {
+   "fieldname": "pack_per_ctn",
+   "fieldtype": "Float",
+   "label": "Pack Per Ctn",
+   "in_list_view": 1,
+   "columns": 1,
+   "description": "From the Sales Order Item."
+  },
+  {
+   "fieldname": "total_ctn",
+   "fieldtype": "Float",
+   "label": "Total Ctn",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 1,
+   "description": "= (A Qty + B Qty) / (Pcs per Pack x Pack Per Ctn)."
+  },
+  {
+   "fieldname": "section_break_ref",
+   "fieldtype": "Section Break",
+   "label": "References",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "label": "Sales Order",
+   "options": "Sales Order",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sales_order_item",
+   "fieldtype": "Data",
+   "label": "Sales Order Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "towel_costing_sheet",
+   "fieldtype": "Link",
+   "label": "Towel Costing Sheet",
+   "options": "Towel Costing Sheet",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ref",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "color_batch",
+   "fieldtype": "Link",
+   "label": "Color Batch",
+   "options": "Batch",
+   "read_only": 1
+  },
+  {
+   "fieldname": "long_hemming_item",
+   "fieldtype": "Data",
+   "label": "Long Hemming Item Row",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-26 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Stitching and Finishing Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

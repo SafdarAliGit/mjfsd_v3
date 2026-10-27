@@ -1,0 +1,205 @@
+{
+ "actions": [],
+ "autoname": "LH-.#####",
+ "creation": "2026-09-14 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "supplier",
+  "hemming_rate",
+  "column_break_1",
+  "source_warehouse",
+  "target_warehouse",
+  "section_break_bqty",
+  "transfer_b_qty",
+  "column_break_bqty2",
+  "b_qty_warehouse",
+  "section_break_1",
+  "total_fabric_issued",
+  "total_hemming_amount",
+  "section_break_items",
+  "items",
+  "section_break_wastage",
+  "hemming_wastage",
+  "transfer_stock_entry",
+  "wastage_stock_entry",
+  "dyed_fabric_issuance",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1,
+   "default": "Today",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier",
+   "description": "Hemming supplier / contractor."
+  },
+  {
+   "fieldname": "hemming_rate",
+   "fieldtype": "Currency",
+   "label": "Hemming Rate (per Pcs)",
+   "description": "Hemming Rate x (A Qty + B Qty) is added as an additional cost on the transfer Stock Entry, so it goes into the value of the towels moving on to Stitching & Finishing."
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "label": "Source Warehouse",
+   "options": "Warehouse",
+   "reqd": 1,
+   "description": "Defaults to the source Dyed Fabric Issuance's Target Warehouse - where this fabric currently sits."
+  },
+  {
+   "fieldname": "target_warehouse",
+   "fieldtype": "Link",
+   "label": "Target Warehouse",
+   "options": "Warehouse",
+   "reqd": 1,
+   "description": "Where A Qty (and, if Transfer B Qty is unchecked, B Qty too) is transferred to."
+  },
+  {
+   "fieldname": "section_break_bqty",
+   "fieldtype": "Section Break",
+   "label": "B Qty Transfer"
+  },
+  {
+   "fieldname": "transfer_b_qty",
+   "fieldtype": "Check",
+   "label": "Transfer B Qty",
+   "description": "Unchecked (default): A Qty + B Qty are combined into one transfer to Target Warehouse. Checked: A Qty goes to Target Warehouse and B Qty goes separately to B Qty Warehouse below."
+  },
+  {
+   "fieldname": "column_break_bqty2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "b_qty_warehouse",
+   "fieldtype": "Link",
+   "label": "B Qty Warehouse",
+   "options": "Warehouse",
+   "depends_on": "eval:doc.transfer_b_qty",
+   "mandatory_depends_on": "eval:doc.transfer_b_qty"
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "total_fabric_issued",
+   "fieldtype": "Float",
+   "label": "Total Issued Pcs",
+   "read_only": 1,
+   "description": "Sum of Issued Pcs across Items."
+  },
+  {
+   "fieldname": "total_hemming_amount",
+   "fieldtype": "Currency",
+   "label": "Hemming Amount",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "= Hemming Rate x total (A Qty + B Qty)."
+  },
+  {
+   "fieldname": "section_break_items",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Long Hemming Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_wastage",
+   "fieldtype": "Section Break",
+   "label": "Hemming Wastage"
+  },
+  {
+   "fieldname": "hemming_wastage",
+   "fieldtype": "Table",
+   "label": "Hemming Wastage",
+   "options": "Hemming Wastage",
+   "description": "Optional - if any rows are entered here, a separate Material Receipt Stock Entry is created on submit (qty = Weight)."
+  },
+  {
+   "fieldname": "transfer_stock_entry",
+   "fieldtype": "Link",
+   "label": "Transfer Stock Entry",
+   "options": "Stock Entry",
+   "hidden": 1,
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "wastage_stock_entry",
+   "fieldtype": "Link",
+   "label": "Wastage Stock Entry",
+   "options": "Stock Entry",
+   "hidden": 1,
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "dyed_fabric_issuance",
+   "fieldtype": "Link",
+   "label": "Dyed Fabric Issuance Ref.",
+   "options": "Dyed Fabric Issuance",
+   "hidden": 1,
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Internal - the Dyed Fabric Issuance this was created from, via its Create button. Only one Long Hemming can be created per Dyed Fabric Issuance."
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "options": "Long Hemming",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-09-26 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Long Hemming",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

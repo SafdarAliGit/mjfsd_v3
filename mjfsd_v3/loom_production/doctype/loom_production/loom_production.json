@@ -1,0 +1,165 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:LP-{DD}-{MM}-{YYYY}-{#####}",
+ "creation": "2023-04-29 19:36:13.831672",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "shift",
+  "shift_supervisor",
+  "column_break_3kydn",
+  "date",
+  "amended_from",
+  "shift_working_hours",
+  "section_break_iuhe0",
+  "loom_production_items",
+  "section_break_xxti5",
+  "total_unit_per_rpm",
+  "column_break_qjzin",
+  "avg_pick",
+  "column_break_ncsv5",
+  "average_efficiency",
+  "column_break_twtlr",
+  "running_average_efficiency",
+  "column_break_xhfie",
+  "total_meters"
+ ],
+ "fields": [
+  {
+   "fieldname": "shift",
+   "fieldtype": "Link",
+   "label": "Shift",
+   "options": "Shift"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Loom Production",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "shift.shift_supervisor",
+   "fieldname": "shift_supervisor",
+   "fieldtype": "Data",
+   "label": "Shift Supervisor",
+   "read_only": 1
+  },
+  {
+   "allow_bulk_edit": 1,
+   "fieldname": "loom_production_items",
+   "fieldtype": "Table",
+   "label": "Loom Production Detail",
+   "options": "Loom Production Items"
+  },
+  {
+   "fetch_from": "shift.shift_working_hours",
+   "fieldname": "shift_working_hours",
+   "fieldtype": "Float",
+   "label": "Shift Working Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3kydn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_iuhe0",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_xxti5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_unit_per_rpm",
+   "fieldtype": "Float",
+   "label": "Total Unit Per RPM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_qjzin",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "average_efficiency",
+   "fieldtype": "Float",
+   "label": "Average Efficiency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_xhfie",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_meters",
+   "fieldtype": "Float",
+   "label": "Total Meters",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "avg_pick",
+   "fieldtype": "Float",
+   "label": "Avg Pick",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ncsv5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_twtlr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "running_average_efficiency",
+   "fieldtype": "Data",
+   "label": "Running Average Efficiency",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-06 20:12:34.402420",
+ "modified_by": "Administrator",
+ "module": "Loom Production",
+ "name": "Loom Production",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
